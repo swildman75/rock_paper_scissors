@@ -21,7 +21,6 @@ const getPlayerChoice = () => {
 };
 
 // function to check winner
-
 const checkWinner = (playerSelection, computerSelection) => {
   if (playerSelection === computerSelection) {
     return "It's a draw";
