@@ -50,10 +50,16 @@ const playRound = () => {
 
 // Function to play a five round game
 const game = () => {
-  for (let i = 0; i < 5; i++) {
+  while (playerScore < 5 && computerScore < 5) {
     playRound();
     console.log(`Player score: ${playerScore}`);
     console.log(`Computer score: ${computerScore}`);
+  }
+  if (playerScore === 5) {
+    console.log('You win this game!');
+  }
+  if (computerScore === 5) {
+    console.log('The computer wins the game!');
   }
 };
 
