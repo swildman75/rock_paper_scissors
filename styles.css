@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: url(./img/marcus-wallis-R1qHDAEnCmc-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  padding: 50px;
+}
+
+.main {
+  background-color: bisque;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 100px;
+  padding-bottom: 25px;
+}
+
+.rps_icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.icon h2 {
+  text-align: center;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 150px;
+  justify-content: center;
+  padding-top: 25px;
+  margin-bottom: 50px;
+}
