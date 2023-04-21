@@ -1,1 +1,1 @@
-# rock_paper_scissors
+All icons used are from icons8.com
