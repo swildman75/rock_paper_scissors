@@ -20,6 +20,16 @@ h1 {
   padding: 50px;
 }
 
+.btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+}
+
+#output {
+  font-size: 3rem;
+}
+
 .main {
   background-color: bisque;
   width: 800px;

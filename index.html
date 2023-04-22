@@ -13,23 +13,32 @@
       <h1>Rock, Paper, Scissors</h1>
       <div class="rps_icons">
         <div class="icon">
-          <img src="./img/icons8-rock-music-100.png" alt="rock guitar" />
-          <h2>Rock</h2>
+          <button class="btn" id="rock">
+            <img src="./img/icons8-rock-music-100.png" alt="rock guitar" />
+            <h2>Rock</h2>
+          </button>
         </div>
         <div class="icon">
-          <img src="./img/icons8-paper-100.png" alt="paper icon" />
-          <h2>Paper</h2>
+          <button class="btn" id="paper">
+            <img src="./img/icons8-paper-100.png" alt="paper icon" />
+            <h2>Paper</h2>
+          </button>
         </div>
         <div class="icon">
-          <img src="./img/icons8-barber-scissors-100.png" alt="scissors icon" />
-          <h2>Scissors</h2>
+          <button class="btn" id="scissors">
+            <img
+              src="./img/icons8-barber-scissors-100.png"
+              alt="scissors icon"
+            />
+            <h2>Scissors</h2>
+          </button>
         </div>
       </div>
       <div class="scoreboard">
-        <h2>Player Score: 0</h2>
-        <h2>Computer Score: 0</h2>
+        <h2 id="player_score"></h2>
+        <h2 id="computer_score"></h2>
       </div>
-      <div class="final_score"></div>
+      <div id="output"></div>
     </div>
   </body>
 </html>
