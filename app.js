@@ -2,19 +2,8 @@
 let playerScore = 0;
 let computerScore = 0;
 
-// let playerSelection;
-
 // Variables to select elements
 const buttons = document.querySelectorAll('.btn');
-
-const player = document.querySelector('#player_score');
-player.textContent = `Player Score: ${playerScore}`;
-
-const computer = document.querySelector('#computer_score');
-computer.textContent = `Computer Score: ${computerScore}`;
-
-const output = document.querySelector('#output');
-output.textContent = "Let's See Who Can Win Five Matches.";
 
 // Function to get computers random choice
 const getComputerChoice = () => {
@@ -28,64 +17,50 @@ const getComputerChoice = () => {
   }
 };
 
-// function to check winner
-const checkWinner = (playerSelection, computerSelection) => {
-  if (playerSelection === computerSelection) {
-    output.textContent = "It's a draw!";
-    return "It's a draw";
-  } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    output.textContent = `You win, ${playerSelection} beats ${computerSelection}`;
-    playerScore++;
-  } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    output.textContent = `You win, ${playerSelection} beats ${computerSelection}`;
-    playerScore++;
-  } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    output.textContent = `You win, ${playerSelection} beats ${computerSelection}`;
-    playerScore++;
-  } else {
-    output.textContent = `You Lose, ${computerSelection} beats ${playerSelection}`;
-    computerScore++;
-  }
+const endGame = () => {
+  buttons.forEach((item) => {
+    item.disabled = true;
+  });
 };
 
-// Loop through button and set event listener on click event
+// Function to play best of five game
+const playRound = (playerSelection) => {
+  let computerSelection = getComputerChoice();
+  let result = '';
+  if (
+    (playerSelection === 'rock' && computerSelection === 'scissors') ||
+    (playerSelection === 'paper' && computerSelection === 'rock') ||
+    (playerSelection === 'scissors' && computerSelection === 'paper')
+  ) {
+    playerScore++;
+    result =
+      `You Win! ${playerSelection} beats ${computerSelection}` +
+      `<br>Player Score: ${playerScore}<br>Computer Score: ${computerScore}`;
+
+    if (playerScore === 5) {
+      result = `<br>You Win the Game! Refresh Your Browser To Play Again`;
+      endGame();
+    }
+  } else if (playerSelection === computerSelection) {
+    result =
+      `It's a Draw, You Both Chose ${playerSelection}` +
+      `<br>Player Score: ${playerScore}<br>Computer Score: ${computerScore}`;
+  } else {
+    computerScore++;
+    result =
+      `You Lose! ${computerSelection} Beats ${playerSelection}` +
+      `<br>Player Score: ${playerScore}<br>Computer Score: ${computerScore}`;
+  }
+  if (computerScore === 5) {
+    result = `<br>The Computer Wins! Refresh Your Browser To Play Again`;
+    endGame();
+  }
+  document.getElementById('result').innerHTML = result;
+};
+
+// Loop through buttons and set event listener on click event
 buttons.forEach((button) => {
   button.addEventListener('click', () => {
-    playerSelection = button.id;
-    computerSelection = getComputerChoice();
-    checkWinner(playerSelection, computerSelection);
+    playRound(button.id);
   });
 });
-
-// Function to play one round
-const playRound = () => {
-  let computerSelection = getComputerChoice();
-  // let winner = checkWinner(playerSelection, computerSelection);
-  // return winner;
-};
-playRound();
-
-// // Function to play one round
-// const playRound = () => {
-//   let computerSelection = getComputerChoice();
-//   let winner = checkWinner(playerSelection, computerSelection);
-//   return winner;
-// };
-
-// Function to play a five round game
-const game = () => {
-  player.textContent = `Player Score: ${playerScore}`;
-  computer.textContent = `Computer Score: ${computerScore}`;
-  if (playerScore === 5) {
-    output.textContent = 'You Won the Game!';
-    player.textContent = `Player Score: ${playerScore}`;
-    computer.textContent = `Computer Score: ${computerScore}`;
-  } else if (computerScore === 5) {
-    output.textContent = 'Computer Wins the Game!';
-    player.textContent = `Player Score: ${playerScore}`;
-    computer.textContent = `Computer Score: ${computerScore}`;
-  }
-  playRound();
-};
-
-game();

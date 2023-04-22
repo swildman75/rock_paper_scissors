@@ -20,14 +20,14 @@ h1 {
   padding: 50px;
 }
 
+#result {
+  font-size: 2rem;
+}
+
 .btn {
   cursor: pointer;
   border: none;
   background: transparent;
-}
-
-#output {
-  font-size: 3rem;
 }
 
 .main {
@@ -40,6 +40,7 @@ h1 {
   border-radius: 10px;
   margin-top: 100px;
   padding-bottom: 25px;
+  max-height: 70vh;
 }
 
 .rps_icons {
